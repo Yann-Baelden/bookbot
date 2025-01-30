@@ -1,24 +1,25 @@
 def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
-    num_char = get_num_characters(text)
-    print(num_char)
+    num_words = get_num_words(text)
+    chars_dict = get_chars_dict(text)
+    print(chars_dict)
 
-def get_num_characters(text):
-    lower_text = text.lower()
-    characters = []
-    num_characters = {}
-    for character in lower_text:
-        if character in characters:
-            num_characters[character] +=1
-        else:
-            characters.append(character)
-            num_characters[character] = 1
-    return num_characters
 
 def get_num_words(text):
     words = text.split()
     return len(words)
+
+
+def get_chars_dict(text):
+    chars = {}
+    for c in text:
+        lowered = c.lower()
+        if lowered in chars:
+            chars[lowered] += 1
+        else:
+            chars[lowered] = 1
+    return chars
 
 
 def get_book_text(path):
