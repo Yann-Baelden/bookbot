@@ -1,4 +1,5 @@
 import sys
+from stats import get_num_words
 
 def main():
     if len(sys.argv) > 1:
@@ -23,9 +24,6 @@ def main():
     print("--- End report ---")
 
 
-def get_num_words(text):
-    words = text.split()
-    return len(words)
 
 
 def sort_on(d):
